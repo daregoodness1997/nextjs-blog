@@ -7,7 +7,7 @@ interface Props {
 
 const BlogBody: React.FC<Props> = ({ content }) => {
   return (
-    <div className="mx-auto prose">
+    <div className="container">
       <RichText content={content} />
     </div>
   );

@@ -8,8 +8,8 @@ interface Props {
 
 const ContentImage: React.FC<Props> = ({ src, alt }) => {
   return (
-    <div>
-      <img src={src} alt={alt} style={{width:'100%', height:"400px"}} />
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <img src={src} alt={alt} className="content-img" />
     </div>
   );
 };

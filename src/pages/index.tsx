@@ -25,15 +25,15 @@ export default function Home() {
     fetchBlogs();
   }, []);
   return (
-    <main>
+    <main >
       <TitleHeader title="My Blog Posts" />
       <section>
         {loading ? (
           <div>
-            <div > Loadiing...</div>
+            <div> Loadiing...</div>
           </div>
         ) : (
-          <div style={{display:'flex', gap:"1rem", }}>
+          <div className="container blog-container">
             {blog.map((blog) => (
               <BlogCard
                 key={blog.id}

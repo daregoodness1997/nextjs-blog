@@ -21,15 +21,12 @@ const BlogCard: React.FC<Props> = ({
 }) => {
   return (
     <Link href={link}>
-      <div>
-        <div className="w-1/2">
-          <Image
-            src={"http:" + cover}
+      <div className="blog-card">
+        <div>
+          <img
+            src={cover}
             alt={title}
-            width={200}
-            height={200}
-            // fill={true}
-            sizes="100%"
+            style={{ width: "100%", height: "200px", objectFit:"cover" , borderRadius:'4px'}}
           />
         </div>
 
