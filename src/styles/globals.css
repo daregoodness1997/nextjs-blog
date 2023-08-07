@@ -25,3 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.title-header-container {
+  padding: 2rem;
+  background-color: #121212;
+  
+}
