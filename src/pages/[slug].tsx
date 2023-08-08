@@ -1,7 +1,7 @@
 import Layout from "@/layout";
-import BlogBody from "@/sections/blog/blog-body";
-import BlogHeader from "@/sections/blog/blog-header";
-import TitleHeader from "@/sections/title-header";
+import BlogBody from "@/components/blog/blog-body";
+import BlogHeader from "@/components/blog/blog-header";
+import TitleHeader from "@/components/title-header";
 import { BlogType } from "@/types/blog";
 import { client } from "@/utils/contenful";
 import { Button, Spinner } from "@nextui-org/react";
