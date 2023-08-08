@@ -7,7 +7,7 @@ interface Props {
 
 const BlogBody: React.FC<Props> = ({ content }) => {
   return (
-    <div className="container">
+    <div className="container blog-body">
       <RichText content={content} />
     </div>
   );

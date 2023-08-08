@@ -1,8 +1,11 @@
+import Card from "@/components/card";
+import Navbar from "@/components/navbar";
+import Layout from "@/layout";
 import BlogCard from "@/sections/blog/blog-card";
 import TitleHeader from "@/sections/title-header";
 import { BlogType } from "@/types/blog";
 import { client } from "@/utils/contenful";
-import Image from "next/image";
+import { Spinner } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 export default function Home() {
   const [blog, setBlog] = useState<any[]>([]);
@@ -25,17 +28,16 @@ export default function Home() {
     fetchBlogs();
   }, []);
   return (
-    <main >
-      <TitleHeader title="My Blog Posts" />
-      <section>
+    <Layout title="My Blog Poost">
+      <>
         {loading ? (
-          <div>
-            <div> Loadiing...</div>
+          <div className="w-full h-1/2 md:h-[600px] flex items-center justify-center">
+            <Spinner size="lg" />
           </div>
         ) : (
-          <div className="container blog-container">
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-4 mt-6 md:mt-8">
             {blog.map((blog) => (
-              <BlogCard
+              <Card
                 key={blog.id}
                 title={blog.fields.title}
                 summary={blog.fields?.summary}
@@ -45,7 +47,7 @@ export default function Home() {
             ))}
           </div>
         )}
-      </section>
-    </main>
+      </>
+    </Layout>
   );
 }

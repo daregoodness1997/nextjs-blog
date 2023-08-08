@@ -1,8 +1,10 @@
+import Layout from "@/layout";
 import BlogBody from "@/sections/blog/blog-body";
 import BlogHeader from "@/sections/blog/blog-header";
 import TitleHeader from "@/sections/title-header";
 import { BlogType } from "@/types/blog";
 import { client } from "@/utils/contenful";
+import { Button, Spinner } from "@nextui-org/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -31,7 +33,7 @@ const BlogDetail = () => {
     fetchBlogs();
   }, []);
   return (
-    <div>
+    <Layout title={blog?.fields.title || ""}>
       <Head>
         <title>Blog Details</title>
         <link
@@ -52,21 +54,31 @@ const BlogDetail = () => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <main>
-        <TitleHeader title={blog?.fields.title || ""} />
+        <>
+          {loading ? (
+            <div className="w-full h-1/2 md:h-[600px] flex items-center justify-center">
+              <Spinner size="lg" />
+            </div>
+          ) : (
+            <section>
+              <div className="py-4">
+                <Button size="md" onClick={() => router.push("/")}>
+                  Go Back
+                </Button>
+              </div>
 
-        <section className="container">
-          <button onClick={() => router.push("/")}>Go Back</button>
-
-          <BlogHeader
-            title={blog?.fields.title || ""}
-            coverImage={blog?.fields?.coverImage?.fields.file.url || ""}
-          />
-          <h2>{blog?.fields.title}.</h2>
-          <p className="italic text-gray-300 mb-6">{blog?.fields.summary}</p>
-          <BlogBody content={blog?.fields?.content || ""} />
-        </section>
+              <BlogHeader
+                title={blog?.fields.title || ""}
+                coverImage={blog?.fields?.coverImage?.fields.file.url || ""}
+                summary={blog?.fields.summary}
+              />
+            
+              <BlogBody content={blog?.fields?.content || ""} />
+            </section>
+          )}
+        </>
       </main>
-    </div>
+    </Layout>
   );
 };
 
