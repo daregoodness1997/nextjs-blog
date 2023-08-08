@@ -1,8 +1,10 @@
+import Card from "@/components/card";
+import Navbar from "@/components/navbar";
 import BlogCard from "@/sections/blog/blog-card";
 import TitleHeader from "@/sections/title-header";
 import { BlogType } from "@/types/blog";
 import { client } from "@/utils/contenful";
-import Image from "next/image";
+import { Spinner } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 export default function Home() {
   const [blog, setBlog] = useState<any[]>([]);
@@ -25,16 +27,17 @@ export default function Home() {
     fetchBlogs();
   }, []);
   return (
-    <main >
-      <TitleHeader title="My Blog Posts" />
-      <section>
+    <main>
+      <Navbar />
+      {/* <TitleHeader title="My Blog Posts" /> */}
+      <section className="max-w-6xl mx-auto px-4 ">
         {loading ? (
-          <div>
-            <div> Loadiing...</div>
+          <div className="w-full h-screen flex items-center justify-center">
+            <Spinner size="lg" />
           </div>
         ) : (
-          <div className="container blog-container">
-            {blog.map((blog) => (
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-4 mt-6 md:mt-16">
+            {/* {blog.map((blog) => (
               <BlogCard
                 key={blog.id}
                 title={blog.fields.title}
@@ -42,7 +45,14 @@ export default function Home() {
                 cover={blog.fields?.coverImage?.fields.file.url || ""}
                 link={`${blog.fields.slug}`}
               />
-            ))}
+            ))} */}
+
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
           </div>
         )}
       </section>
