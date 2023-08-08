@@ -1,9 +1,5 @@
 import Card from "@/components/card";
-import Navbar from "@/components/navbar";
 import Layout from "@/layout";
-import BlogCard from "@/sections/blog/blog-card";
-import TitleHeader from "@/sections/title-header";
-import { BlogType } from "@/types/blog";
 import { client } from "@/utils/contenful";
 import { Spinner } from "@nextui-org/react";
 import { useEffect, useState } from "react";
@@ -28,7 +24,7 @@ export default function Home() {
     fetchBlogs();
   }, []);
   return (
-    <Layout title="My Blog Poost">
+    <Layout title="My Blog Post">
       <>
         {loading ? (
           <div className="w-full h-1/2 md:h-[600px] flex items-center justify-center">
