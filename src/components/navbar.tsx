@@ -37,7 +37,7 @@ export default function Navbar() {
         />
         <NavbarBrand>
           {/* <AcmeLogo /> */}
-          <p className="font-bold text-inherit">ACME</p>
+          <p className="font-bold text-inherit">BLOG TEMPLATE</p>
         </NavbarBrand>
       </NavbarContent>
 

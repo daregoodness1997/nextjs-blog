@@ -5,7 +5,7 @@ interface Props {
 
 const TitleHeader: React.FC<Props> = ({ title }) => {
   return (
-    <div className="title-header-container">
+    <div className="title-header-container rounded-lg">
       <h1>{title}</h1>
     </div>
   );

@@ -1,15 +1,20 @@
 import React from "react";
 import TitleHeader from "./sections/title-header";
+import Navbar from "./components/navbar";
 
-interface TitleHeaderProps {
+interface Props {
   children: React.ReactNode;
   title: string;
 }
 
-const Layout = () => {
+const Layout: React.FC<Props> = ({ children , title}) => {
   return (
     <main>
-      <TitleHeader title="" />
+      <Navbar />
+      <section className="max-w-6xl mx-auto px-4 ">
+        <TitleHeader title={title} />
+        {children}
+      </section>
     </main>
   );
 };

@@ -1,5 +1,6 @@
 import Card from "@/components/card";
 import Navbar from "@/components/navbar";
+import Layout from "@/layout";
 import BlogCard from "@/sections/blog/blog-card";
 import TitleHeader from "@/sections/title-header";
 import { BlogType } from "@/types/blog";
@@ -27,35 +28,26 @@ export default function Home() {
     fetchBlogs();
   }, []);
   return (
-    <main>
-      <Navbar />
-      {/* <TitleHeader title="My Blog Posts" /> */}
-      <section className="max-w-6xl mx-auto px-4 ">
+    <Layout title="My Blog Poost">
+      <>
         {loading ? (
-          <div className="w-full h-screen flex items-center justify-center">
+          <div className="w-full h-1/2 md:h-[600px] flex items-center justify-center">
             <Spinner size="lg" />
           </div>
         ) : (
-          <div className="grid gap-4 grid-cols-1 md:grid-cols-4 mt-6 md:mt-16">
-            {/* {blog.map((blog) => (
-              <BlogCard
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-4 mt-6 md:mt-8">
+            {blog.map((blog) => (
+              <Card
                 key={blog.id}
                 title={blog.fields.title}
                 summary={blog.fields?.summary}
                 cover={blog.fields?.coverImage?.fields.file.url || ""}
                 link={`${blog.fields.slug}`}
               />
-            ))} */}
-
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            ))}
           </div>
         )}
-      </section>
-    </main>
+      </>
+    </Layout>
   );
 }
